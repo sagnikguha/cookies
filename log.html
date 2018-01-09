@@ -1,0 +1,46 @@
+<html>
+    <head><title>logged</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+            </head>
+    <body>
+    <div class="log">
+    <p id="output">here to show</p>
+    <button onclick="logout()">logout</button>
+    </div>
+    
+    <script>
+        
+        
+        function setCookie(name,time) {
+		  
+            
+		  myCookie = {};
+		  var kv = document.cookie.split(";");
+		  for (var i in kv) {
+			var cookie = kv[i].split("=");
+			myCookie[cookie[0].trim()] = cookie[1];
+		  }
+          console.log(myCookie)
+		  document.getElementById("output").innerHTML = myCookie["_name"];		
+	    }
+        
+        
+        document.ready = setCookie();
+        
+       /* function deletecookie(){
+            
+            document.cookie="";
+        } */
+        function logout(){
+            //setCookie(setTimeout(logout()));
+            //deletecookie();
+            window.open("cook.html","_self");
+        }
+        
+        
+        </script>
+
+    </body>
+    
+    
+</html>

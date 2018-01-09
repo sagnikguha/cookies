@@ -1,0 +1,61 @@
+<html>
+<head><title>mypage</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script type="text/javascript" >
+    if(document.cookie !=""){
+     window.open("log.html","_self");
+    }
+	else{
+    function goto(){
+        if(document.getElementById("name").value=="sagnik"||"sayan"||"swetosree" && document.getElementById("pass").value=="123"||"456"||"789"){
+            saveCookie();
+            window.open("log.html","_self");
+        }
+    }
+    }
+        
+    var myCookie = {};
+    function saveCookie(name,value,time) {
+		
+		myCookie["_name"] = document.getElementById("name").value;
+		document.cookie = "";
+		var expires = new Date(Date.now()+60*1000).toString();
+		var cookieString = "";
+		for (var key in myCookie) {
+			cookieString = key+"="+myCookie[key]+";"+expires;
+			document.cookie=cookieString;
+		} 
+		document.getElementById("out").innerHTML = document.cookie;
+	}
+    
+	
+	/*function setCookie() {
+		
+		myCookie = {};
+		var kv = document.cookie.split(";");
+		for (var i in kv) {
+			var cookie = kv[i].split("=");
+			myCookie[cookie[0].trim()] = cookie[1];
+		}
+        console.log(myCookie)
+		document.getElementById("out").innerHTML = myCookie["_name"];		
+	}*/
+    
+</script>
+</head>
+
+<body>
+    <div class="login">
+    <p>user:</p>
+    <input type="text" id="name"/>
+    <p>pass:</p>
+    <input type="password" id="pass"/>
+	<input type="button" onclick="goto()" value="login">
+	<!--<button onclick="setCookie()">setcookie</button>-->
+	<h1>name</h1>	
+	<p id="out">save it</p>
+    </div>
+</body>
+</html>
